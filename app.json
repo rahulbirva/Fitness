@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "30 Day Wedding Fit",
+    "slug": "wedding-fit",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.weddingfit.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#EFE9DD"
+      },
+      "package": "com.weddingfit.app",
+      "permissions": [
+        "INTERNET",
+        "CAMERA",
+        "VIBRATE",
+        "RECEIVE_BOOT_COMPLETED",
+        "SCHEDULE_EXACT_ALARM",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#2D5016"
+        }
+      ],
+      "expo-sqlite",
+      "expo-secure-store",
+      "expo-sharing"
+    ],
+    "scheme": "weddingfit",
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "e1e760a8-503e-4679-a397-e73a4b426f27"
+      }
+    }
+  }
+}
