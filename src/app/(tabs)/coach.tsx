@@ -58,7 +58,9 @@ export default function CoachScreen() {
           const envKey =
             p.ai_provider === 'gemini'
               ? process.env.EXPO_PUBLIC_GEMINI_API_KEY
-              : process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY;
+              : p.ai_provider === 'claude'
+              ? process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY
+              : process.env.EXPO_PUBLIC_GROK_API_KEY;
           if (envKey && envKey.trim()) {
             key = envKey.trim();
           }

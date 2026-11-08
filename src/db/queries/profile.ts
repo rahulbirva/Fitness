@@ -10,7 +10,7 @@ export interface Profile {
   goal: 'fat_loss' | 'maintain' | 'muscle_gain';
   wedding_date: string;
   program_start_date: string;
-  ai_provider: 'gemini' | 'claude';
+  ai_provider: 'gemini' | 'claude' | 'grok';
   ai_model: string;
   reminder_time: string;
   water_reminder_enabled: number;

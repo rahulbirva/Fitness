@@ -172,6 +172,8 @@ export default function TodayScreen() {
     (acc, set) => acc + set.size,
     0
   );
+  const workoutProgress = totalWorkoutSets > 0 ? Math.min(doneWorkoutSets / totalWorkoutSets, 1) : 0;
+  const completedMeals = mealLogs.filter((meal) => meal.completed === 1).length;
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -208,6 +210,30 @@ export default function TodayScreen() {
             </View>
           ) : null}
         </View>
+
+        {workout ? (
+          <View style={styles.progressCard}>
+            <View style={styles.progressCopy}>
+              <Typography variant="captionBold" color={Colors.text}>
+                {isWorkoutDone ? 'SESSION COMPLETE' : 'TODAY’S WORKOUT'}
+              </Typography>
+              <Typography variant="caption" color={Colors.textMuted}>
+                {doneWorkoutSets} of {totalWorkoutSets} sets checked off
+              </Typography>
+            </View>
+            <Typography variant="monoBold" color={Colors.accent}>
+              {Math.round(workoutProgress * 100)}%
+            </Typography>
+            <View
+              style={styles.progressTrack}
+              accessibilityRole="progressbar"
+              accessibilityLabel="Workout set progress"
+              accessibilityValue={{ min: 0, max: 100, now: Math.round(workoutProgress * 100) }}
+            >
+              <View style={[styles.progressFill, { width: `${workoutProgress * 100}%` }]} />
+            </View>
+          </View>
+        ) : null}
 
         {/* Workout Routine Card */}
         {workout ? (
@@ -281,9 +307,14 @@ export default function TodayScreen() {
 
         {/* Meals Checklist Section */}
         <View style={styles.section}>
-          <Typography variant="captionBold" color={Colors.textMuted} style={styles.sectionHeader}>
-            MEAL CHECKLIST
-          </Typography>
+          <View style={styles.mealHeading}>
+            <Typography variant="captionBold" color={Colors.textMuted} style={styles.sectionHeader}>
+              MEAL CHECKLIST
+            </Typography>
+            <Typography variant="monoMedium" color={Colors.accent} style={styles.mealCount}>
+              {completedMeals}/4 DONE
+            </Typography>
+          </View>
 
           {(['breakfast', 'lunch', 'snack', 'dinner'] as const).map((slot) => {
             const currentLog = mealLogs.find((m) => m.slot === slot);
@@ -386,6 +417,34 @@ const styles = StyleSheet.create({
   headerRight: {
     alignItems: 'flex-end',
   },
+  progressCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    backgroundColor: Colors.surface,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderRadius: BorderRadius.sm,
+    padding: Spacing.md,
+    marginBottom: Spacing.md,
+  },
+  progressCopy: {
+    flex: 1,
+    gap: 2,
+  },
+  progressTrack: {
+    width: '100%',
+    height: 7,
+    backgroundColor: Colors.surfaceHighlight,
+    borderRadius: 4,
+    overflow: 'hidden',
+    marginTop: Spacing.sm,
+  },
+  progressFill: {
+    height: '100%',
+    backgroundColor: Colors.accent,
+    borderRadius: 4,
+  },
   workoutContainer: {
     marginBottom: Spacing.md,
   },
@@ -447,6 +506,15 @@ const styles = StyleSheet.create({
   sectionHeader: {
     letterSpacing: 0.8,
     marginBottom: Spacing.sm,
+  },
+  mealHeading: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  mealCount: {
+    marginBottom: Spacing.sm,
+    fontSize: 11,
   },
   metricsRow: {
     flexDirection: 'row',

@@ -37,7 +37,7 @@ export default function SettingsScreen() {
   const [units, setUnits] = useState<'metric' | 'imperial'>('metric');
 
   // AI settings
-  const [aiProvider, setAiProvider] = useState<'gemini' | 'claude'>('gemini');
+  const [aiProvider, setAiProvider] = useState<'gemini' | 'claude' | 'grok'>('gemini');
   const [aiModel, setAiModel] = useState('gemini-1.5-flash');
   const [apiKey, setApiKey] = useState('');
   const [hasExistingKey, setHasExistingKey] = useState(false);
@@ -61,7 +61,7 @@ export default function SettingsScreen() {
         setGoal(p.goal);
         setWeddingDate(p.wedding_date);
         setStartDate(p.program_start_date);
-        setAiProvider(p.ai_provider as 'gemini' | 'claude');
+        setAiProvider((p.ai_provider as 'gemini' | 'claude' | 'grok') || 'gemini');
         setAiModel(p.ai_model);
         setReminderTime(p.reminder_time || '17:30');
         setWaterReminder(p.water_reminder_enabled === 1);
@@ -71,7 +71,9 @@ export default function SettingsScreen() {
         const envKey =
           p.ai_provider === 'gemini'
             ? process.env.EXPO_PUBLIC_GEMINI_API_KEY
-            : process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY;
+            : p.ai_provider === 'claude'
+            ? process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY
+            : process.env.EXPO_PUBLIC_GROK_API_KEY;
 
         if ((storedKey && storedKey.trim()) || (envKey && envKey.trim())) {
           setHasExistingKey(true);
@@ -92,15 +94,23 @@ export default function SettingsScreen() {
     }, [loadProfileData])
   );
 
-  const handleProviderChange = async (provider: 'gemini' | 'claude') => {
+  const handleProviderChange = async (provider: 'gemini' | 'claude' | 'grok') => {
     setAiProvider(provider);
-    setAiModel(provider === 'gemini' ? 'gemini-1.5-flash' : 'claude-3-5-haiku-20241022');
+    const defaultModel =
+      provider === 'gemini'
+        ? 'gemini-1.5-flash'
+        : provider === 'claude'
+        ? 'claude-3-5-haiku-20241022'
+        : 'grok-beta';
+    setAiModel(defaultModel);
 
     const key = await getStoredItem(`api_key_${provider}`);
     const envKey =
       provider === 'gemini'
         ? process.env.EXPO_PUBLIC_GEMINI_API_KEY
-        : process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY;
+        : provider === 'claude'
+        ? process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY
+        : process.env.EXPO_PUBLIC_GROK_API_KEY;
 
     if ((key && key.trim()) || (envKey && envKey.trim())) {
       setHasExistingKey(true);
@@ -365,7 +375,7 @@ export default function SettingsScreen() {
                 variant="captionBold"
                 color={aiProvider === 'gemini' ? Colors.textInverse : Colors.text}
               >
-                GOOGLE GEMINI
+                GEMINI
               </Typography>
             </TouchableOpacity>
 
@@ -378,7 +388,20 @@ export default function SettingsScreen() {
                 variant="captionBold"
                 color={aiProvider === 'claude' ? Colors.textInverse : Colors.text}
               >
-                ANTHROPIC CLAUDE
+                CLAUDE
+              </Typography>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.optionBtn, aiProvider === 'grok' && styles.optionBtnActive]}
+              onPress={() => handleProviderChange('grok')}
+              activeOpacity={0.7}
+            >
+              <Typography
+                variant="captionBold"
+                color={aiProvider === 'grok' ? Colors.textInverse : Colors.text}
+              >
+                GROK (xAI)
               </Typography>
             </TouchableOpacity>
           </View>
@@ -387,7 +410,13 @@ export default function SettingsScreen() {
             label="MODEL NAME"
             value={aiModel}
             onChangeText={setAiModel}
-            placeholder={aiProvider === 'gemini' ? 'gemini-1.5-flash' : 'claude-3-5-haiku-20241022'}
+            placeholder={
+              aiProvider === 'gemini'
+                ? 'gemini-1.5-flash'
+                : aiProvider === 'claude'
+                ? 'claude-3-5-haiku-20241022'
+                : 'grok-beta'
+            }
           />
 
           <Input

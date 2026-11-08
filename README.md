@@ -16,7 +16,7 @@ Targeted Android-first, fully iOS-compatible, single user, completely offline-fi
 - **Stick-Figure Form Loops**: Looping SVG animations rendered with `react-native-svg` and `react-native-reanimated` showing correct posture and mechanics for exercises (push-ups, squats, lunges, planks, crunches, bicep curls, shoulder presses, rows, glute bridges, leg raises). Missing items include direct YouTube search links.
 - **Smart Rest Timer**: Integrated rest timer between sets with a vibration pattern at completion (`react-native Vibration`).
 - **Indian Diet Planner**: Specific Indian food options (eggs, besan chilla, paneer bhurji, dal, roti, sabzi, curd, chana, sprouts, soya chunks, chicken, fish). Daily calorie and protein targets dynamically calculated from height, weight, age, and goal. Weekly single fast-food meal toggle.
-- **AI Coach**: Real-time streaming chat powered by your choice of Anthropic Claude or Google Gemini. Automatically injects your biometrics, today's workout, last 7 days of training logs, water intake, and diet rules as context.
+- **AI Coach**: Real-time streaming chat powered by your choice of Anthropic Claude, Google Gemini, or xAI Grok. Automatically injects your biometrics, today's workout, last 7 days of training logs, water intake, and diet rules as context.
 - **Data Export & Privacy**: Export complete database as JSON or body metrics as CSV through the native share sheet (`expo-sharing`). Photos stored in app document sandbox (`expo-file-system`).
 
 ---
@@ -98,6 +98,8 @@ eas build -p android --profile preview
   - Get a key at: [Google AI Studio](https://aistudio.google.com/app/apikey)
 - **Anthropic Claude**: `claude-3-5-haiku-20241022` (High quality, short punchy responses).
   - Get a key at: [Anthropic Console](https://console.anthropic.com/settings/keys)
+- **xAI Grok**: `grok-beta` or `grok-2-latest` (OpenAI-compatible streaming, witty & direct).
+  - Get a key at: [xAI Console](https://console.x.ai/)
 
 ### Security Recommendation: Sharing the App via Tiny Proxy Server
 If you ever share this application with friends, family, or publish it publicly, **do not distribute an app where users must enter their own keys or where you ship a shared key inside the app bundle**. Client-side keys can be extracted through reverse-engineering or network inspection.
