@@ -51,7 +51,8 @@ const CATEGORIES: { key: FoodCategory | 'combos'; label: string }[] = [
   { key: 'curry', label: 'CURRIES & DALS' },
   { key: 'fry', label: 'FRYS & SABZI' },
   { key: 'drink', label: 'DRINKS' },
-  { key: 'snack', label: 'SNACKS' },
+  { key: 'snack', label: 'SNACKS & STREET' },
+  { key: 'sweet', label: 'SWEETS & DESSERT' },
   { key: 'combos', label: 'QUICK COMBOS' },
 ];
 
