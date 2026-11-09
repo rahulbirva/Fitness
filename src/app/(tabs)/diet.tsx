@@ -62,17 +62,20 @@ export default function DietScreen() {
     await toggleFastFoodEaten(val);
   };
 
-  const handleSelectMeal = async (
+  const handleSaveMeal = async (
     slot: 'breakfast' | 'lunch' | 'snack' | 'dinner',
-    meal: MealOption
+    mealName: string,
+    calories: number,
+    proteinG: number,
+    mealId: string
   ) => {
     await upsertMealLog(
       todayStr,
       slot,
-      meal.id,
-      meal.name,
-      meal.calories,
-      meal.proteinG,
+      mealId,
+      mealName,
+      calories,
+      proteinG,
       false
     );
     const updated = await getMealLogsForDate(todayStr);
@@ -201,7 +204,7 @@ export default function DietScreen() {
                 calories={currentLog?.calories || 0}
                 proteinG={currentLog?.protein_g || 0}
                 completed={isCompleted}
-                onSelectMeal={(meal) => handleSelectMeal(slot, meal)}
+                onSaveMeal={(name, cal, prot, mId) => handleSaveMeal(slot, name, cal, prot, mId)}
                 onToggleComplete={() => handleToggleMealDone(slot, isCompleted)}
               />
             );

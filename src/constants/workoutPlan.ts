@@ -22,112 +22,114 @@ export interface WorkoutDay {
   notes: string;
 }
 
-// Progressive upper body sets
+// Progressive 100% Zero-Equipment Bodyweight Upper Body Sets
 function getUpperExercises(week: number): WorkoutExercise[] {
   switch (week) {
     case 1:
       return [
-        { exerciseId: 'pushup', name: 'Push-Up', sets: 3, reps: '8-10 reps', restSeconds: 60, weightNote: 'Bodyweight' },
-        { exerciseId: 'shoulder_press', name: 'Dumbbell Shoulder Press', sets: 3, reps: '10 reps', restSeconds: 60, weightNote: 'Light to moderate' },
-        { exerciseId: 'db_row', name: 'Dumbbell Row', sets: 3, reps: '10 reps', restSeconds: 60, weightNote: 'Moderate' },
-        { exerciseId: 'lat_pulldown', name: 'Lat Pulldown', sets: 3, reps: '10-12 reps', restSeconds: 60, weightNote: 'Comfortable weight' },
-        { exerciseId: 'bicep_curl', name: 'Dumbbell Bicep Curl', sets: 3, reps: '10 reps', restSeconds: 45, weightNote: 'Moderate' },
-        { exerciseId: 'tricep_dip', name: 'Triceps Dip', sets: 3, reps: '10 reps', restSeconds: 45, weightNote: 'Bodyweight' },
+        { exerciseId: 'pushup', name: 'Standard Push-Up', sets: 3, reps: '8-10 reps', restSeconds: 60, weightNote: 'Bodyweight (Floor)' },
+        { exerciseId: 'pike_pushup', name: 'Pike Push-Up (Shoulder Press)', sets: 3, reps: '8-10 reps', restSeconds: 60, weightNote: 'Bodyweight (Pike angle)' },
+        { exerciseId: 'doorframe_row', name: 'Doorframe / Towel Row', sets: 3, reps: '10 reps', restSeconds: 60, weightNote: 'Lean back 45 degrees' },
+        { exerciseId: 'superman_pull', name: 'Prone Superman Lat Pull', sets: 3, reps: '12 reps', restSeconds: 60, weightNote: '2 sec squeeze at back' },
+        { exerciseId: 'towel_bicep_curl', name: 'Doorway / Towel Bicep Curl', sets: 3, reps: '10 reps', restSeconds: 45, weightNote: 'Isometric foot resistance' },
+        { exerciseId: 'tricep_dip', name: 'Chair / Couch Triceps Dip', sets: 3, reps: '10 reps', restSeconds: 45, weightNote: 'Chair edge, knees bent' },
       ];
     case 2:
       return [
-        { exerciseId: 'pushup', name: 'Push-Up', sets: 3, reps: '12 reps', restSeconds: 60, weightNote: 'Bodyweight' },
-        { exerciseId: 'shoulder_press', name: 'Dumbbell Shoulder Press', sets: 3, reps: '12 reps', restSeconds: 60, weightNote: 'Increase +1 kg' },
-        { exerciseId: 'db_row', name: 'Dumbbell Row', sets: 3, reps: '12 reps', restSeconds: 60, weightNote: 'Increase +1 kg' },
-        { exerciseId: 'lat_pulldown', name: 'Lat Pulldown', sets: 3, reps: '12 reps', restSeconds: 60, weightNote: 'Moderate' },
-        { exerciseId: 'bicep_curl', name: 'Dumbbell Bicep Curl', sets: 3, reps: '12 reps', restSeconds: 45, weightNote: 'Moderate' },
-        { exerciseId: 'tricep_dip', name: 'Triceps Dip', sets: 3, reps: '12 reps', restSeconds: 45, weightNote: 'Bodyweight' },
+        { exerciseId: 'pushup', name: 'Standard Push-Up', sets: 3, reps: '12 reps', restSeconds: 60, weightNote: 'Strict 2 sec descent' },
+        { exerciseId: 'pike_pushup', name: 'Pike Push-Up (Shoulder Press)', sets: 3, reps: '12 reps', restSeconds: 60, weightNote: 'Walk feet closer' },
+        { exerciseId: 'doorframe_row', name: 'Doorframe / Towel Row', sets: 3, reps: '12 reps', restSeconds: 60, weightNote: 'Steeper lean angle' },
+        { exerciseId: 'superman_pull', name: 'Prone Superman Lat Pull', sets: 3, reps: '15 reps', restSeconds: 60, weightNote: '3 sec squeeze' },
+        { exerciseId: 'towel_bicep_curl', name: 'Doorway / Towel Bicep Curl', sets: 3, reps: '12 reps', restSeconds: 45, weightNote: 'Maximum tension hold' },
+        { exerciseId: 'tricep_dip', name: 'Chair / Couch Triceps Dip', sets: 3, reps: '12 reps', restSeconds: 45, weightNote: 'Legs extended straight' },
       ];
     case 3:
       return [
-        { exerciseId: 'bench_press', name: 'Dumbbell Bench Press', sets: 4, reps: '10 reps', restSeconds: 60, weightNote: 'Moderate heavy' },
-        { exerciseId: 'shoulder_press', name: 'Dumbbell Shoulder Press', sets: 4, reps: '10 reps', restSeconds: 60, weightNote: 'Moderate heavy' },
-        { exerciseId: 'db_row', name: 'Dumbbell Row', sets: 4, reps: '10 reps', restSeconds: 60, weightNote: 'Heavy' },
-        { exerciseId: 'pullup', name: 'Pull-Up', sets: 4, reps: '6-8 reps', restSeconds: 60, weightNote: 'Assisted or strict' },
-        { exerciseId: 'bicep_curl', name: 'Dumbbell Bicep Curl', sets: 4, reps: '10 reps', restSeconds: 45, weightNote: 'Moderate heavy' },
-        { exerciseId: 'tricep_dip', name: 'Triceps Dip', sets: 4, reps: '12 reps', restSeconds: 45, weightNote: 'Legs elevated' },
+        { exerciseId: 'pushup', name: 'Slow Tempo Push-Up', sets: 4, reps: '12 reps', restSeconds: 60, weightNote: '3 sec down, explosive up' },
+        { exerciseId: 'pike_pushup', name: 'Elevated Pike Push-Up', sets: 4, reps: '10 reps', restSeconds: 60, weightNote: 'Feet elevated on chair' },
+        { exerciseId: 'doorframe_row', name: 'Doorframe Single-Arm Row', sets: 4, reps: '10 each arm', restSeconds: 60, weightNote: 'Unilateral back focus' },
+        { exerciseId: 'superman_pull', name: 'Prone Superman Lat Pull', sets: 4, reps: '15 reps', restSeconds: 60, weightNote: 'Strict tempo' },
+        { exerciseId: 'towel_bicep_curl', name: 'Doorway / Towel Bicep Curl', sets: 4, reps: '12 reps', restSeconds: 45, weightNote: '5 sec peak squeeze' },
+        { exerciseId: 'tricep_dip', name: 'Chair Triceps Dip', sets: 4, reps: '15 reps', restSeconds: 45, weightNote: 'Legs elevated on second chair' },
       ];
     case 4:
     default:
       return [
-        { exerciseId: 'pushup', name: 'Push-Up', sets: 4, reps: '15 reps', restSeconds: 60, weightNote: 'Strict tempo' },
-        { exerciseId: 'shoulder_press', name: 'Dumbbell Shoulder Press', sets: 4, reps: '12 reps', restSeconds: 60, weightNote: 'Peak effort' },
-        { exerciseId: 'db_row', name: 'Dumbbell Row', sets: 4, reps: '12 reps', restSeconds: 60, weightNote: 'Peak effort' },
-        { exerciseId: 'lat_pulldown', name: 'Lat Pulldown', sets: 4, reps: '12 reps', restSeconds: 60, weightNote: 'Drop set on last' },
-        { exerciseId: 'bicep_curl', name: 'Dumbbell Bicep Curl', sets: 4, reps: '12 reps', restSeconds: 45, weightNote: 'Peak contraction' },
-        { exerciseId: 'tricep_dip', name: 'Triceps Dip', sets: 4, reps: '15 reps', restSeconds: 45, weightNote: 'Bodyweight' },
+        { exerciseId: 'pushup', name: 'Peak Volume Push-Up', sets: 4, reps: '15 reps', restSeconds: 60, weightNote: 'Chest 2cm off floor' },
+        { exerciseId: 'pike_pushup', name: 'Elevated Pike Push-Up', sets: 4, reps: '12 reps', restSeconds: 60, weightNote: 'Feet on chair / couch' },
+        { exerciseId: 'doorframe_row', name: 'Doorframe / Towel Row', sets: 4, reps: '14 reps', restSeconds: 60, weightNote: 'Max lean angle' },
+        { exerciseId: 'superman_pull', name: 'Prone Superman Lat Pull', sets: 4, reps: '18 reps', restSeconds: 60, weightNote: 'Burnout lat pump' },
+        { exerciseId: 'towel_bicep_curl', name: 'Doorway / Towel Bicep Curl', sets: 4, reps: '14 reps', restSeconds: 45, weightNote: 'Peak contraction' },
+        { exerciseId: 'tricep_dip', name: 'Chair Triceps Dip', sets: 4, reps: '18 reps', restSeconds: 45, weightNote: 'Continuous tension' },
       ];
   }
 }
 
-// Progressive lower body + core sets
+// Progressive 100% Zero-Equipment Lower Body + Core Sets
 function getLowerCoreExercises(week: number): WorkoutExercise[] {
   switch (week) {
     case 1:
       return [
-        { exerciseId: 'squat', name: 'Bodyweight / Goblet Squat', sets: 3, reps: '12 reps', restSeconds: 75, weightNote: 'Bodyweight or light' },
-        { exerciseId: 'lunge', name: 'Reverse Lunge', sets: 3, reps: '10 each leg', restSeconds: 60, weightNote: 'Bodyweight' },
-        { exerciseId: 'rdl', name: 'Romanian Deadlift', sets: 3, reps: '10 reps', restSeconds: 75, weightNote: 'Moderate' },
-        { exerciseId: 'glute_bridge', name: 'Glute Bridge', sets: 3, reps: '15 reps', restSeconds: 45, weightNote: '2 sec pause at top' },
-        { exerciseId: 'plank', name: 'Forearm Plank', sets: 3, reps: '35 seconds', restSeconds: 45, weightNote: 'Strict form' },
-        { exerciseId: 'leg_raise', name: 'Lying Leg Raise', sets: 3, reps: '10 reps', restSeconds: 45, weightNote: 'Controlled descent' },
+        { exerciseId: 'squat', name: 'Bodyweight Tempo Squat', sets: 3, reps: '12 reps', restSeconds: 60, weightNote: '3 sec descent, zero weights' },
+        { exerciseId: 'lunge', name: 'Reverse Lunge', sets: 3, reps: '10 each leg', restSeconds: 60, weightNote: 'Bodyweight balance' },
+        { exerciseId: 'single_leg_rdl', name: 'Single-Leg Bodyweight RDL', sets: 3, reps: '10 each leg', restSeconds: 60, weightNote: 'Hamstring stretch' },
+        { exerciseId: 'glute_bridge', name: 'Floor Glute Bridge', sets: 3, reps: '15 reps', restSeconds: 45, weightNote: '2 sec squeeze at top' },
+        { exerciseId: 'plank', name: 'Forearm Plank', sets: 3, reps: '35 seconds', restSeconds: 45, weightNote: 'Strict hollow body' },
+        { exerciseId: 'leg_raise', name: 'Lying Floor Leg Raise', sets: 3, reps: '10 reps', restSeconds: 45, weightNote: 'Controlled negative' },
         { exerciseId: 'crunch', name: 'Abdominal Crunch', sets: 3, reps: '15 reps', restSeconds: 30, weightNote: '1 sec squeeze' },
       ];
     case 2:
       return [
-        { exerciseId: 'squat', name: 'Bodyweight / Goblet Squat', sets: 3, reps: '15 reps', restSeconds: 75, weightNote: 'Add +2 kg dumbbell' },
-        { exerciseId: 'lunge', name: 'Reverse Lunge', sets: 3, reps: '12 each leg', restSeconds: 60, weightNote: 'Bodyweight' },
-        { exerciseId: 'rdl', name: 'Romanian Deadlift', sets: 3, reps: '12 reps', restSeconds: 75, weightNote: 'Moderate +1 kg' },
-        { exerciseId: 'glute_bridge', name: 'Glute Bridge', sets: 3, reps: '20 reps', restSeconds: 45, weightNote: '2 sec pause at top' },
-        { exerciseId: 'plank', name: 'Forearm Plank', sets: 3, reps: '45 seconds', restSeconds: 45, weightNote: 'Tight core' },
-        { exerciseId: 'leg_raise', name: 'Lying Leg Raise', sets: 3, reps: '12 reps', restSeconds: 45, weightNote: 'Slow negative' },
-        { exerciseId: 'crunch', name: 'Abdominal Crunch', sets: 3, reps: '20 reps', restSeconds: 30, weightNote: '1 sec squeeze' },
+        { exerciseId: 'squat', name: 'Bodyweight Tempo Squat', sets: 3, reps: '15 reps', restSeconds: 60, weightNote: 'Deep thigh parallel' },
+        { exerciseId: 'lunge', name: 'Reverse Lunge', sets: 3, reps: '12 each leg', restSeconds: 60, weightNote: 'Knee 2cm off floor' },
+        { exerciseId: 'single_leg_rdl', name: 'Single-Leg Bodyweight RDL', sets: 3, reps: '12 each leg', restSeconds: 60, weightNote: 'Flat back hinge' },
+        { exerciseId: 'glute_bridge', name: 'Floor Glute Bridge', sets: 3, reps: '20 reps', restSeconds: 45, weightNote: '2 sec pause at top' },
+        { exerciseId: 'plank', name: 'Forearm Plank', sets: 3, reps: '45 seconds', restSeconds: 45, weightNote: 'Tight abs and glutes' },
+        { exerciseId: 'leg_raise', name: 'Lying Floor Leg Raise', sets: 3, reps: '12 reps', restSeconds: 45, weightNote: 'Slow negative' },
+        { exerciseId: 'crunch', name: 'Abdominal Crunch & Bicycle', sets: 3, reps: '20 reps', restSeconds: 30, weightNote: 'Continuous burn' },
       ];
     case 3:
       return [
-        { exerciseId: 'squat', name: 'Bodyweight / Goblet Squat', sets: 4, reps: '12 reps', restSeconds: 75, weightNote: 'Moderate heavy dumbbell' },
-        { exerciseId: 'lunge', name: 'Reverse Lunge', sets: 4, reps: '12 each leg', restSeconds: 60, weightNote: 'Dumbbells in hands' },
-        { exerciseId: 'rdl', name: 'Romanian Deadlift', sets: 4, reps: '10 reps', restSeconds: 75, weightNote: 'Heavy dumbbells' },
-        { exerciseId: 'glute_bridge', name: 'Glute Bridge', sets: 4, reps: '15 reps', restSeconds: 45, weightNote: 'Weight on hips' },
-        { exerciseId: 'plank', name: 'Forearm Plank', sets: 3, reps: '50 seconds', restSeconds: 45, weightNote: 'Solid hold' },
-        { exerciseId: 'leg_raise', name: 'Lying Leg Raise', sets: 4, reps: '12 reps', restSeconds: 45, weightNote: 'No swinging' },
-        { exerciseId: 'crunch', name: 'Abdominal Crunch', sets: 3, reps: '25 reps', restSeconds: 30, weightNote: 'Burnout pace' },
+        { exerciseId: 'squat', name: 'Pause Squat (2 Sec Pause)', sets: 4, reps: '12 reps', restSeconds: 60, weightNote: 'Dead stop at bottom' },
+        { exerciseId: 'lunge', name: 'Walking / Reverse Lunge', sets: 4, reps: '14 each leg', restSeconds: 60, weightNote: 'Continuous stepping' },
+        { exerciseId: 'single_leg_rdl', name: 'Single-Leg Bodyweight RDL', sets: 4, reps: '12 each leg', restSeconds: 60, weightNote: 'Deep hamstring pull' },
+        { exerciseId: 'glute_bridge', name: 'Single-Leg Glute Bridge', sets: 4, reps: '10 each leg', restSeconds: 45, weightNote: 'One leg extended in air' },
+        { exerciseId: 'plank', name: 'Forearm Plank', sets: 3, reps: '50 seconds', restSeconds: 45, weightNote: 'Rock solid hold' },
+        { exerciseId: 'leg_raise', name: 'Lying Floor Leg Raise', sets: 4, reps: '12 reps', restSeconds: 45, weightNote: 'No swinging' },
+        { exerciseId: 'crunch', name: 'Bicycle Crunches', sets: 3, reps: '25 reps', restSeconds: 30, weightNote: 'Elbow-to-opposite-knee' },
       ];
     case 4:
     default:
       return [
-        { exerciseId: 'squat', name: 'Bodyweight / Goblet Squat', sets: 4, reps: '15 reps', restSeconds: 75, weightNote: 'Heavy dumbbell' },
-        { exerciseId: 'lunge', name: 'Reverse Lunge', sets: 4, reps: '14 each leg', restSeconds: 60, weightNote: 'Dumbbells in hands' },
-        { exerciseId: 'rdl', name: 'Romanian Deadlift', sets: 4, reps: '12 reps', restSeconds: 75, weightNote: 'Heavy dumbbells' },
-        { exerciseId: 'glute_bridge', name: 'Glute Bridge', sets: 4, reps: '20 reps', restSeconds: 45, weightNote: 'Plate or dumbbell on hips' },
-        { exerciseId: 'plank', name: 'Forearm Plank', sets: 4, reps: '60 seconds', restSeconds: 45, weightNote: 'Max tension' },
-        { exerciseId: 'leg_raise', name: 'Lying Leg Raise', sets: 4, reps: '15 reps', restSeconds: 45, weightNote: 'Strict core control' },
+        { exerciseId: 'squat', name: 'Bodyweight Jump / Tempo Squat', sets: 4, reps: '16 reps', restSeconds: 60, weightNote: 'Explosive ascent' },
+        { exerciseId: 'lunge', name: 'Reverse Lunge Pulse', sets: 4, reps: '14 each leg', restSeconds: 60, weightNote: 'High quad tension' },
+        { exerciseId: 'single_leg_rdl', name: 'Single-Leg Bodyweight RDL', sets: 4, reps: '14 each leg', restSeconds: 60, weightNote: 'Controlled balance' },
+        { exerciseId: 'glute_bridge', name: 'Single-Leg Glute Bridge', sets: 4, reps: '12 each leg', restSeconds: 45, weightNote: 'Max glute burn' },
+        { exerciseId: 'plank', name: 'Forearm Plank', sets: 4, reps: '60 seconds', restSeconds: 45, weightNote: '1 full minute hold' },
+        { exerciseId: 'leg_raise', name: 'Lying Floor Leg Raise', sets: 4, reps: '15 reps', restSeconds: 45, weightNote: 'Strict core control' },
         { exerciseId: 'crunch', name: 'Abdominal Crunch', sets: 4, reps: '25 reps', restSeconds: 30, weightNote: 'Peak contraction' },
       ];
   }
 }
 
+// Progressive 100% Zero-Equipment Cardio & Abs Sets
 function getCardioAbsExercises(week: number): WorkoutExercise[] {
   const plankDuration = week >= 3 ? '50 seconds' : '40 seconds';
   const crunchReps = week >= 3 ? '25 reps' : '20 reps';
   const legRaiseReps = week >= 3 ? '15 reps' : '12 reps';
 
   return [
-    { exerciseId: 'incline_walk', name: 'Incline Treadmill Walk or Cycling', sets: 1, reps: '40 min steady', restSeconds: 0, weightNote: 'Heart rate 130-145 bpm' },
-    { exerciseId: 'plank', name: 'Forearm Plank', sets: 3, reps: plankDuration, restSeconds: 45, weightNote: 'Core tight' },
-    { exerciseId: 'crunch', name: 'Abdominal Crunch', sets: 3, reps: crunchReps, restSeconds: 30, weightNote: 'Exhale at top' },
-    { exerciseId: 'leg_raise', name: 'Lying Leg Raise', sets: 3, reps: legRaiseReps, restSeconds: 30, weightNote: 'Lower back flat' },
+    { exerciseId: 'brisk_walk', name: '40 Min Outdoor / Indoor Brisk Walk & Spot Jogging', sets: 1, reps: '40 min continuous', restSeconds: 0, weightNote: 'Zero equipment fat burn (6 km/h pace)' },
+    { exerciseId: 'high_knees_cardio', name: 'High Knees & Mountain Climbers Circuit', sets: 3, reps: '45 sec each', restSeconds: 30, weightNote: 'Rapid fat-loss pulse' },
+    { exerciseId: 'plank', name: 'Forearm Plank', sets: 3, reps: plankDuration, restSeconds: 45, weightNote: 'Strict core hold' },
+    { exerciseId: 'crunch', name: 'Abdominal & Bicycle Crunch', sets: 3, reps: crunchReps, restSeconds: 30, weightNote: 'Exhale at contraction' },
+    { exerciseId: 'leg_raise', name: 'Lying Floor Leg Raise', sets: 3, reps: legRaiseReps, restSeconds: 30, weightNote: 'Lower back flat' },
   ];
 }
 
 function getRestExercises(): WorkoutExercise[] {
   return [
-    { exerciseId: 'incline_walk', name: 'Active Recovery Walk', sets: 1, reps: '30-45 min outdoor walk', restSeconds: 0, weightNote: 'Easy conversational pace' },
+    { exerciseId: 'brisk_walk', name: '30-45 Min Active Recovery Walk', sets: 1, reps: '30-45 min outdoor walk', restSeconds: 0, weightNote: 'Relaxed easy pace + full body stretches' },
   ];
 }
 
@@ -145,70 +147,62 @@ export function generateWorkoutPlan(): WorkoutDay[] {
     let title: string;
     let durationMinutes: number;
     let exercises: WorkoutExercise[];
-    let warmup = '5 min arm circles, torso twists, jumping jacks';
-    let cooldown = '5 min shoulder, lat, chest static stretches';
+    let warmup = '5 min arm circles, torso twists, high knees, neck rolls';
+    let cooldown = '5 min shoulder, chest, hamstring, quad static stretches';
     let notes = '';
 
     switch (dayOfWeek) {
       case 'Mon':
         type = 'upper';
-        title = `Upper Body Strength (Week ${week})`;
+        title = `Zero-Equipment Upper Body (Week ${week})`;
         durationMinutes = 60;
         exercises = getUpperExercises(week);
-        notes = 'Focus on controlled eccentric phase. 60 min session includes warmup and cooldown.';
+        notes = 'Bodyweight push-ups, pike presses, doorframe rows, and dips. 60 min session.';
         break;
       case 'Tue':
         type = 'lower_core';
-        title = `Lower Body & Core (Week ${week})`;
+        title = `Zero-Equipment Lower Body & Core (Week ${week})`;
         durationMinutes = 60;
         exercises = getLowerCoreExercises(week);
-        warmup = '5 min bodyweight squats, hip openers, high knees';
-        cooldown = '5 min hamstring, quad, glute static stretches';
-        notes = 'Drive through heels. Keep ribs locked over pelvis during core work.';
+        notes = 'Tempo squats, reverse lunges, single-leg RDLs, glute bridges, and ab circuit.';
         break;
       case 'Wed':
         type = 'cardio_abs';
-        title = 'Cardio & Abs Conditioning';
-        durationMinutes = 60;
+        title = `Brisk Walk Cardio & Abs (Week ${week})`;
+        durationMinutes = 55;
         exercises = getCardioAbsExercises(week);
-        warmup = '3 min easy walk or pedal';
-        cooldown = '5 min gentle walking & calf stretch';
-        notes = '40 min steady incline walk (8-12%) or cycling + 15 min dedicated abs circuits.';
+        notes = '40 min steady brisk walk or indoor spot jogging followed by 15 min core circuit.';
         break;
       case 'Thu':
         type = 'upper';
-        title = `Upper Body Hypertrophy (Week ${week})`;
+        title = `Zero-Equipment Upper Body Density (Week ${week})`;
         durationMinutes = 60;
         exercises = getUpperExercises(week);
-        notes = 'Squeeze at top of every curl and row. Rest times strictly timed.';
+        notes = 'Second upper body session of the week. Focus on strict tempo and depth.';
         break;
       case 'Fri':
         type = 'lower_core';
-        title = `Lower Body & Core Power (Week ${week})`;
+        title = `Zero-Equipment Lower Body & Core (Week ${week})`;
         durationMinutes = 60;
         exercises = getLowerCoreExercises(week);
-        warmup = '5 min leg swings, glute bridges, hip rotations';
-        cooldown = '5 min deep hip flexor & lower back stretches';
-        notes = 'Finish strong before the weekend. Maintain full range of motion.';
+        notes = 'Lower body hypertrophy and core endurance. Focus on glute and hamstring tension.';
         break;
       case 'Sat':
         type = 'cardio_abs';
-        title = 'Cardio Burn & Abs';
-        durationMinutes = 60;
+        title = `Cardio Fat Burn & Abs (Week ${week})`;
+        durationMinutes = 55;
         exercises = getCardioAbsExercises(week);
-        warmup = '3 min gradual warmup';
-        cooldown = '5 min full body cooldown';
-        notes = '40 min cardio + 15 min abs. Stay hydrated with 3.5 L water.';
+        notes = 'Cardio endurance and abs. Keep heart rate elevated in zone 2 fat burn.';
         break;
       case 'Sun':
       default:
         type = 'rest';
-        title = 'Active Recovery & Walk';
+        title = `Active Recovery & Mobility (Week ${week})`;
         durationMinutes = 45;
         exercises = getRestExercises();
-        warmup = 'Gentle joint mobility';
-        cooldown = 'Full body relaxing stretch';
-        notes = 'Rest day. 30 to 45 min relaxed walk. Sleep 8 hours, prepare meals for the week.';
+        warmup = '3 min deep belly breathing';
+        cooldown = '10 min full body mobility flow';
+        notes = 'Rest and recharge. 30 to 45 min relaxed walk, hydrate with 3.5 L water.';
         break;
     }
 
